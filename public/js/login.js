@@ -1,3 +1,6 @@
+//WHEN I choose to sign up
+//THEN I am prompted to create a username and password
+
 const login = async (event) => {
   event.preventDefault();
 
@@ -28,8 +31,8 @@ const signup = async (event) => {
   if (username && email && password) {
     const response = await fetch('/api/users', {
       method: 'POST',
-      body: JSON.stringify({username,email,password}),
-      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify({ username, email, password }),
+      headers: { 'Content-Type': 'application/json' },
     });
     if (response.ok) {
       document.location.replace('/dashboard');

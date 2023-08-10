@@ -1,3 +1,6 @@
+//WHEN I click on the logout option in the navigation
+//THEN I am signed out of the site
+
 const logout = async () => {
   const response = await fetch('/api/users/logout', {
     method: 'POST',
