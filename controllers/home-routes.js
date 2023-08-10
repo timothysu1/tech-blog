@@ -11,7 +11,7 @@ router.get('/', async (req, res) => {
       include: [
         {
           model: User,
-          attributes: ['name'],
+          attributes: ['username'],
         },
       ],
     });
@@ -35,7 +35,7 @@ router.get('/post/:id', withAuth, async (req, res) => {
       include: [
         {
           model: User,
-          Attributes: ['name'],
+          Attributes: ['username'],
         },
       ],
     });
@@ -53,18 +53,23 @@ router.get('/post/:id', withAuth, async (req, res) => {
 
 //WHEN I click on the dashboard option in the navigation
 //THEN I am taken to the dashboard and presented with any blog posts I have already created and the option to add a new blog post
-router.get('/dashboard', withAuth, async (req, res) => {
+router.get('/dashboard',withAuth, async (req, res) => {
   try {
+    //console.log(req.session)
     const userData = await User.findByPk(req.session.user_id, {
       attributes: { exclude: ['password'] },
       include: [{ model: Post }]
     });
-
+console.log(userData)
+if (!userData) {
+  console.log('User data not found');
+  return res.status(404).json({ message: 'User not found' });
+}
     const user = userData.get({ plain: true });
-
+//console.log(user)
     res.render('dashboard', {
       ...user,
-      logged_in: true,
+      logged_in: req.session.logged_in,
     });
   } catch (err) {
     res.status(500).json(err)
@@ -75,7 +80,7 @@ router.get('/dashboard', withAuth, async (req, res) => {
 //THEN I am prompted to enter both a title and contents for my blog post
 router.get('/dashboard/new', withAuth, async (req, res) => {
   try {
-    res.render('new-post');
+    res.render('newpost');
   } catch (err) {
     res.status(500).json(err);
   }
@@ -97,7 +102,7 @@ router.get('/dashboard/edit/:id', withAuth, async (req, res) => {
   } catch (err) {
     res.status(500).json(err);
   }
-});s
+});
 
 
 

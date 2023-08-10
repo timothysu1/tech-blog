@@ -42,5 +42,5 @@ const signup = async (event) => {
   }
 };
 
-document.querySelector('.login').addEventListener('click', login);
-document.querySelector('.signup').addEventListener('click',signup)
+document.querySelector('.login').addEventListener('submit', login);
+document.querySelector('.signup').addEventListener('submit', signup);
