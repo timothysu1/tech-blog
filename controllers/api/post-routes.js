@@ -29,3 +29,5 @@ router.post('/comment', withAuth, async (req, res) => {
     res.status(500).json(err);
   }
 });
+
+module.exports = router;
