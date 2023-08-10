@@ -97,7 +97,7 @@ router.get('/dashboard/edit/:id', withAuth, async (req, res) => {
   } catch (err) {
     res.status(500).json(err);
   }
-}); s
+});s
 
 
 
