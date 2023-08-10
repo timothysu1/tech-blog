@@ -8,10 +8,11 @@ const newPost = async (event) => {
     const response = await fetch(`/api/post`, {
       method: 'POST',
       body: JSON.stringify({ title, content }),
-      header: {
+      headers: {
         'Content-Type': 'application/json',
       }
     });
+    console.log("response",response)
     if (response.ok) {
       document.location.replace('/dashboard');
     } else {

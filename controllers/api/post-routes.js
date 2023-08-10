@@ -6,12 +6,19 @@ const withAuth = require('../../utils/auth')
 //THEN the title and contents of my post are saved and I am taken back to an updated dashboard with my new blog post
 router.post('/', withAuth, async (req, res) => {
   try {
-    console.log(req.body);
+    console.log("req.body:", req.body);
+    const create_date = new Date();
     const newPost = await Post.create({
       ...req.body,
+      create_date,
       user_id: req.session.user_id,
     });
-    console.log(newPost)
+    //console.log(newPost)
+    console.log('pizza:',{
+      ...req.body,
+      create_date,
+      user_id: req.session.user_id,
+    })
     res.status(200).json(newPost);
 
   } catch (err) {
