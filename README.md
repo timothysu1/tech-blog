@@ -3,7 +3,7 @@
 ## Description
 This application serves as a blog where users can create posts related to tech. The user needs to login in order to create posts and leave comments.
 
-[Deployed Link]()
+[Deployed Link](https://pacific-shore-60644-5d230a4a2725.herokuapp.com/)
 
 [Gif](!)
 

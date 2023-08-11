@@ -49,6 +49,10 @@ a:link {
   font-size: 100%;
 }
 
+.page-head{
+  width: 200px;
+}
+
 .not-btn:hover {
   color: var(--text);
   text-decoration: underline;
