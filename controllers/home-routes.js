@@ -60,7 +60,7 @@ router.get('/dashboard', withAuth, async (req, res) => {
       attributes: { exclude: ['password'] },
       include: [{ model: Post }]
     });
-    console.log(userData)
+    //console.log(userData)
     if (!userData) {
       console.log('User data not found');
       return res.status(404).json({ message: 'User not found' });

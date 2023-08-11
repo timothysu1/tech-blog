@@ -12,7 +12,6 @@ const newPost = async (event) => {
         'Content-Type': 'application/json',
       }
     });
-    console.log("response",response)
     if (response.ok) {
       document.location.replace('/dashboard');
     } else {

@@ -15,7 +15,7 @@ Comment.init(
       type: DataTypes.STRING,
       allowNull: false,
     },
-    craete_date: {
+    create_date: {
       type: DataTypes.DATE,
       allowNull: false,
     },

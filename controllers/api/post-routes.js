@@ -13,12 +13,7 @@ router.post('/', withAuth, async (req, res) => {
       create_date,
       user_id: req.session.user_id,
     });
-    //console.log(newPost)
-    console.log('pizza:',{
-      ...req.body,
-      create_date,
-      user_id: req.session.user_id,
-    })
+    console.log(newPost)
     res.status(200).json(newPost);
 
   } catch (err) {
@@ -30,8 +25,10 @@ router.post('/', withAuth, async (req, res) => {
 //THEN the comment is saved and the post is updated to display the comment, the comment creator’s username, and the date created
 router.post('/comment', withAuth, async (req, res) => {
   try {
+    const create_date = new Date();
     const newComment = await Comment.create({
       ...req.body,
+      create_date,
       user_id: req.session.user_id,
     })
     res.status(200).json(newComment);
