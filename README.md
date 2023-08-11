@@ -5,7 +5,7 @@ This application serves as a blog where users can create posts related to tech. 
 
 [Deployed Link](https://pacific-shore-60644-5d230a4a2725.herokuapp.com/)
 
-[Gif](!)
+![Gif](./assets/Tech%20Blog.gif)
 
 ## Built With
 * [JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
