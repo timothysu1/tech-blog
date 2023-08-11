@@ -4,15 +4,20 @@
   <h3>{{user.username}}</h3>
 
   <h3>Comments</h3>
+  
   <div>
     {{#each comments}}
-
+    <p>{{content}}</p>
+    <p>-{{user.username}}</p>
     {{/each}}
   </div>
+
   <div>
-    <form>
-      <textarea id="commment-input"></textarea>
+    <form class="form new-comment" data-id="{{id}}">
+      <textarea id="comment-input"></textarea>
       <button type="submit" class="btn btn-primary">Submit</button>
     </form>
   </div>
 </section>
+
+<script src="/js/comment.js"></script>
