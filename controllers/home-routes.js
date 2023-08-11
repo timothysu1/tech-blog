@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { User, Post } = require('../models');
+const { User, Post, Comment } = require('../models');
 const withAuth = require('../utils/auth');
 
 
@@ -35,8 +35,11 @@ router.get('/post/:id', withAuth, async (req, res) => {
       include: [
         {
           model: User,
-          Attributes: ['username'],
-        },
+          attributes: ['username'],
+        }, {
+          model: Comment,
+          attributes: ['id', 'content', 'createdAt'],
+        }
       ],
     });
 
@@ -96,7 +99,7 @@ router.get('/dashboard/edit/:id', withAuth, async (req, res) => {
     const postData = await Post.findByPk(req.params.id,)
 
     const post = postData.get({ plain: true });
-
+    console.log(post)
     res.render('edit', {
       ...post,
       logged_in: req.session.logged_in,

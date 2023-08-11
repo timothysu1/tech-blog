@@ -6,16 +6,50 @@ const withAuth = require('../../utils/auth')
 //THEN the title and contents of my post are saved and I am taken back to an updated dashboard with my new blog post
 router.post('/', withAuth, async (req, res) => {
   try {
-    console.log("req.body:", req.body);
+    //console.log("req.body:", req.body);
     const create_date = new Date();
     const newPost = await Post.create({
       ...req.body,
       create_date,
       user_id: req.session.user_id,
     });
-    console.log(newPost)
+    //console.log(newPost)
     res.status(200).json(newPost);
 
+  } catch (err) {
+    res.status(400).json(err);
+  }
+});
+
+//Update post
+
+router.put('/:id', withAuth, async (req, res) => {
+  try {
+    const updatePost = await Post.update(
+      {
+        title: req.body.title,
+        content: req.body.content,
+      },
+      {
+        where: {
+          id: req.params.id
+        }
+      })
+    res.status(200).json(updatePost);
+  } catch (err) {
+    res.status(400).json(err);
+  }
+});
+
+//Delete post
+router.delete('/:id', withAuth, async (req, res) => {
+  try {
+    const deletePost = await Post.destroy({
+      where: {
+        id: req.params.id
+      }
+    })
+    res.status(200).json(deletePost)
   } catch (err) {
     res.status(400).json(err);
   }
