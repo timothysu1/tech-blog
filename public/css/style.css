@@ -1,0 +1,56 @@
+:root {
+  --text: #065b83;
+  --card: #99ced3;
+}
+
+body {
+  background-color: lightpink;
+}
+
+nav {
+  font-size: 30px;
+}
+
+.card{
+  margin: 20px;
+}
+
+.new-post-btn {
+  position: sticky;
+  bottom: 20px;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  width: 100px;
+  height: 75px;
+}
+
+.card {
+  background-color: var(--card);
+}
+
+a:link {
+  text-decoration: none;
+  color: var(--text);
+}
+
+#normal-txt {
+  text-decoration: none;
+  color: var(--text);
+}
+
+.not-btn {
+  color: var(--text);
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  text-decoration: none;
+  font-size: 100%;
+}
+
+.not-btn:hover {
+  color: var(--text);
+  text-decoration: underline;
+  text-decoration: none;
+}

@@ -1,10 +1,15 @@
-<h3>dashboard</h3>
-<a href="/dashboard/new">New Post</a>
+<div class="card p-3 col-1">
+  <h3 class=>Dashboard</h3>
+</div>
+
 {{#each posts as |post|}}
-<div class="">
-<h2>
-  <a href="/dashboard/edit/{{post.id}}">{{post.title}}</a>
-</h2>
-<h2>{{post.created_at}}</h2>
+<div class="card p-3">
+  <h3>
+    <a id="normal-txt" href="/dashboard/edit/{{post.id}}">{{post.title}}</a>
+  </h3>
+  <p>Posted on {{format_date create_date}}</p>
 </div>
 {{/each}}
+<div class="card new-post-btn">
+  <a href="/dashboard/new">New Post</a>
+</div>

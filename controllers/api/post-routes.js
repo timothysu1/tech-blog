@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { User, Comment, Post } = require('../../models');
+const { Comment, Post } = require('../../models');
 const withAuth = require('../../utils/auth')
 
 //WHEN I click on the button to create a new blog post
@@ -58,7 +58,7 @@ router.delete('/:id', withAuth, async (req, res) => {
 
 //WHEN I enter a comment and click on the submit button while signed in
 //THEN the comment is saved and the post is updated to display the comment, the comment creator’s username, and the date created
-router.post('/comment', /* withAuth, */ async (req, res) => {
+router.post('/comment', withAuth, async (req, res) => {
   try {
     const comment_date = new Date();
     console.log(comment_date);

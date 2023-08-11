@@ -12,18 +12,20 @@
 </head>
 
 <body>
-  <header>
-    <h1>Tim's Software Tech Blog</h1>
+  <div class="d-flex justify-content"></div>
+  <header class="text-center">
+    <h1 class="">Tim's Software Tech Blog</h1>
+    <nav class="d-flex justify-content-evenly">
+      <a href="/" id="normal-txt">Home</a>
+      <a href="/dashboard" id="normal-txt">Dashboard</a>
+      {{#if logged_in}}
+      <button id='logout' class='not-btn'>Logout</button>
+      {{else}}
+      <a href='/login' id="normal-txt">Login</a>
+      {{/if}}
+    </nav>
   </header>
-  <nav>
-    <a href="/">Home</a>
-    <a href="/dashboard">Dashboard</a>
-    {{#if logged_in}}
-    <button id='logout' class='btn-no-style'>Logout</button>
-    {{else}}
-    <a href='/login'>Login</a>
-    {{/if}}
-  </nav>
+
   <main>
     <div class='post'>
       {{{body}}}
@@ -32,6 +34,7 @@
   {{#if logged_in}}
   <script src='/js/logout.js'></script>
   {{/if}}
+  </div>
 </body>
 
 </html>
