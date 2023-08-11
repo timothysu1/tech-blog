@@ -27,7 +27,7 @@ const editPost = async (event) => {
 const deletePost = async (event) => {
   if (event.target.hasAttribute('data-id')) {
     const id = event.target.getAttribute('data-id');
-    console.log(id)
+
     const response = await fetch(`/api/post/${id}`, {
       method: 'DELETE',
     })
@@ -40,4 +40,5 @@ const deletePost = async (event) => {
 }
 
 document.querySelector('.edit-post').addEventListener('submit', editPost);
+
 document.querySelector('.delete-post').addEventListener('click', deletePost);
