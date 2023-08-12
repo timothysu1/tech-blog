@@ -29,7 +29,7 @@ To install necessary dependancies, run the following command:
 npm i
 ```
 ## Usage
-
+In order to use this application, the user needs to visit the deploy link. The user will be presented with the homepage that contains all of the posts made by all users. To actually interact with posts and make your own, the user will need to sign up or log in to their account. Then the user will be able to make new posts, edit already made posts, and delete unwanted posts through the dashboard.
 
 ## Learning Points
 * Creating a fullstack application from scratch
